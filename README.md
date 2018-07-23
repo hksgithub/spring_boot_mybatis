@@ -12,3 +12,7 @@
     配置i18n 资源文件 供thymeleaf读取
 
     配置全局异常捕获
+
+    整合Mybatis
+
+    mapper逆向生成
