@@ -1,0 +1,18 @@
+
+	ctrl + E 显示最新文件
+
+	ctrl + Alt + ] 切换项目
+
+	c + s + Backspace 最后修改的地方
+
+	c + a + 左箭头 浏览的地方
+
+	c + f11 或 f11 书签  （ctrl+书签号）
+
+	a + s + f  收藏
+
+	c + s + A   Plugins  回车装插件
+
+	a + 1  编辑区和文件区切换
+
+	

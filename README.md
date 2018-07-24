@@ -16,3 +16,7 @@
     整合Mybatis
 
     mapper逆向生成
+
+    MyBatis CRUD
+
+    id生成器
