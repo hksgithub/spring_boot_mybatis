@@ -1,8 +1,11 @@
 package com.hks.spring_boot_mybatis.controller;
 
+import com.hks.spring_boot_mybatis.entity.DemoItem;
 import com.hks.spring_boot_mybatis.entity.TTest;
+import com.hks.spring_boot_mybatis.service.DemoItemService;
 import com.hks.spring_boot_mybatis.service.TTestService;
 import com.hks.spring_boot_mybatis.utils.JsonResult;
+import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +22,12 @@ public class MyBatisCRUDController {
     @Autowired
     private TTestService tTestService;
 
+    @Autowired
+    private DemoItemService demoItemService;
+
+    @Autowired
+    private Sid sid;
+
     /**
      * 添加数据
      * @return
@@ -26,9 +35,36 @@ public class MyBatisCRUDController {
     @RequestMapping(value="/saveTest")
     public JsonResult saveTest(){
         TTest test = new TTest();
-        test.setId(1);
         test.setName("test1");
+        int a = 1/0;
         tTestService.saveTest(test);
         return JsonResult.ok("保存成功");
     }
+
+    @RequestMapping("saveDemoItem")
+    public JsonResult saveDemoItem(){
+        DemoItem demoItem = new DemoItem();
+        demoItem.setId(sid.nextShort());
+        demoItem.setName("demo");
+        demoItem.setAmount(12);
+        demoItemService.saveDemoItem(demoItem);
+        return JsonResult.ok("demo_item表添加成功");
+    }
+
+    @RequestMapping("updateDemoItem")
+    public JsonResult updateDemoItem(){
+        DemoItem demoItem = new DemoItem();
+        demoItem.setId("180724BP0ZD33PSW");
+        demoItem.setName("birthday");
+        demoItem.setAmount(18);
+        demoItemService.updateDemoItem(demoItem);
+        return JsonResult.ok("修改成功");
+    }
+
+    @RequestMapping("deleteDemoItem")
+    public JsonResult deleteDemoItem(){
+        demoItemService.deleteDemoItem("180724BYSYMDPTF8");
+        return JsonResult.ok("删除成功");
+    }
+
 }

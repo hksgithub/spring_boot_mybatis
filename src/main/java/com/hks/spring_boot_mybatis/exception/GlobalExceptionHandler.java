@@ -1,6 +1,8 @@
 package com.hks.spring_boot_mybatis.exception;
 
 import com.hks.spring_boot_mybatis.utils.JsonResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,6 +20,8 @@ public class GlobalExceptionHandler {
 
     public static final String ERROR_VIEW = "error";
 
+    final static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     /**
      *  错误处理
      * @param request 请求
@@ -31,12 +35,15 @@ public class GlobalExceptionHandler {
                                HttpServletResponse response,Exception e) throws Exception{
         e.printStackTrace();
         if(isAjax(request)){
+            log.error("日志记录发生错误,errorAjaxMessage: {}",e.getMessage());
             return JsonResult.errorException(e.getMessage());
         }else{
             ModelAndView mav = new ModelAndView();
             mav.addObject("exception",e);
             mav.addObject("url",request.getRequestURL());
             mav.setViewName(ERROR_VIEW);
+            log.error("日志记录发生错误,errorWebMessage: {}",e.getMessage());
+            log.error("日志记录发生错误,errorWebUrl: {}",request.getRequestURL());
             return mav;
         }
     }

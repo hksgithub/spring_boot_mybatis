@@ -6,6 +6,8 @@ import com.hks.spring_boot_mybatis.mapper.TTestMapper;
 import com.hks.spring_boot_mybatis.service.TTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -23,12 +25,13 @@ public class TTestServiceImpl implements TTestService{
     private TTestMapper tTestMapper;
 
     //增加
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void saveTest(TTest test){
-        try{
-            Thread.sleep(2000);
-        }catch(InterruptedException e){
-            e.printStackTrace();
-        }
+//        try{
+//            Thread.sleep(2000);
+//        }catch(InterruptedException e){
+//            e.printStackTrace();
+//        }
         tTestMapper.insert(test);
     }
 

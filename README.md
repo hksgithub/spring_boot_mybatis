@@ -20,3 +20,5 @@
     MyBatis CRUD
 
     id生成器
+
+    记录日志

@@ -2,25 +2,26 @@ package com.hks.spring_boot_mybatis.entity;
 
 import javax.persistence.*;
 
-@Table(name = "t_test")
-public class TTest {
+@Table(name = "demo_item")
+public class DemoItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     private String name;
+
+    private Integer amount;
 
     /**
      * @return id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,5 +37,19 @@ public class TTest {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return amount
+     */
+    public Integer getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param amount
+     */
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 }
