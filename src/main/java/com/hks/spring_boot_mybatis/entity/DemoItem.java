@@ -1,6 +1,8 @@
 package com.hks.spring_boot_mybatis.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "demo_item")
 public class DemoItem {
@@ -9,6 +11,8 @@ public class DemoItem {
 
     private String name;
 
+    @NotNull(message = "数量必填")
+    @Min(value=18,message = "数量最小为18")
     private Integer amount;
 
     /**

@@ -19,6 +19,24 @@
 
     MyBatis CRUD
 
+    事务@Transactional
+
     id生成器
 
     记录日志
+
+    整合redis
+
+    添加定时器
+
+    开启异步调用方法
+
+    添加拦截器
+
+    valid 表单验证
+
+    aop Aspect 切面
+
+    自定义异常处理
+
+    enum 认识

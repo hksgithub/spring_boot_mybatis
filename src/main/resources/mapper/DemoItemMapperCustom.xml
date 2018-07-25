@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hks.spring_boot_mybatis.mapper.DemoItemMapperCustom">
+  <select id="queryDemoItemSimplyInfoById" resultType="com.hks.spring_boot_mybatis.entity.DemoItem"
+          parameterType="java.lang.String" >
+    select
+    name,amount
+    from
+    demo_item
+    where
+    id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="queryDemoItemSimplyInfoByName" resultType="com.hks.spring_boot_mybatis.entity.DemoItem"
+          parameterType="java.lang.String" >
+    select
+    name,amount
+    from
+    demo_item
+    where
+    name = #{name,jdbcType=VARCHAR}
+  </select>
+</mapper>
